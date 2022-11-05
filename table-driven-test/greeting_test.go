@@ -6,6 +6,7 @@ import (
 )
 
 func TestDo(t *testing.T) {
+	t.Parallel()
 	tests := map[string]struct {
 		in   string
 		want string
@@ -20,6 +21,7 @@ func TestDo(t *testing.T) {
 	for tc, tt := range tests {
 		tt := tt
 		t.Run(tc, func(t *testing.T) {
+			t.Parallel()
 			if got := Do(toDate(t, tt.in)); got != tt.want {
 				t.Errorf("Do() = %v, want %v", got, tt.want)
 			}
